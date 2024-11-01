@@ -9,8 +9,7 @@ from sklearn.metrics import classification_report
 iris = pd.read_csv("iris_dataset/iris.csv")
 data = iris.drop("species", axis=1)  # input features ---> drop output feature
 label = iris["species"]  # target output
-# iris.hist(bins=20,figsize=(20,15))
-# plt.show()
+
 #data_train,data_test,label_train,label_test=train_test_split(data,label,test_size=0.3,random_state=0,shuffle=True)#shuffle --->sort data
 def train_validate_test_split(data, label, testRatio=0.3, valRatio=0.3):
     # Calculate split sizes
