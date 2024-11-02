@@ -44,3 +44,15 @@ GuassianNBModel.fit(data_train,label_train)
 print("GuassianNBModel train score : ",GuassianNBModel.score(data_train,label_train))
 print("GuassianNBModel validation score:", GuassianNBModel.score(data_val, label_val))
 print("GuassianNBModel test score : ",GuassianNBModel.score(data_test,label_test))# --->overfitting
+
+#&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7
+def calculate_accuracy(predicted_y, y):
+    correct_count = sum(pred == actual for pred, actual in zip(predicted_y, y))
+    accuracy = (correct_count / len(y)) * 100
+    print(f"accuracy for your model is : { accuracy}")
+
+
+train_accuracy = calculate_accuracy(pred_train, label_train)
+val_accuracy = calculate_accuracy(pred_val, label_val)
+test_accuracy = calculate_accuracy(pred_test, label_test)
+
