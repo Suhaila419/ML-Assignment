@@ -5,8 +5,10 @@ import pandas as pd
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+from sklearn.utils import shuffle
 
 iris = pd.read_csv("iris_dataset/iris.csv")
+iris = shuffle(iris, random_state=0) # shuffle data to distributed acroos train validate test
 data = iris.drop("species", axis=1)  # input features ---> drop output feature
 label = iris["species"]  # target output
 
