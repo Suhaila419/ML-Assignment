@@ -56,8 +56,7 @@ def calculate_accuracy(predicted_y, y):
     accuracy=(count/len(y))*100
     print(f"accuracy for your model is : { accuracy}")
 
-
-train_accuracy = calculate_accuracy(pred_train, label_train)
-val_accuracy = calculate_accuracy(pred_val, label_val)
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+pred_test = GaussianNBModel.predict(data_test)
 test_accuracy = calculate_accuracy(pred_test, label_test)
 
