@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 from sklearn.utils import shuffle
 
 iris = pd.read_csv("iris_dataset/iris.csv")
-iris = shuffle(iris, random_state=0) # shuffle data to distributed acroos train validate test
+iris = shuffle(iris, random_state=0) # shuffle data to distributed acroos train validate test (more balance)
 data = iris.drop("species", axis=1)  # input features ---> drop output feature
 label = iris["species"]  # target output
 
@@ -44,6 +44,3 @@ GuassianNBModel.fit(data_train,label_train)
 print("GuassianNBModel train score : ",GuassianNBModel.score(data_train,label_train))
 print("GuassianNBModel validation score:", GuassianNBModel.score(data_val, label_val))
 print("GuassianNBModel test score : ",GuassianNBModel.score(data_test,label_test))# --->overfitting
-
-predictions = GuassianNBModel.predict(data_test)
-print("\nClassification Report:\n", classification_report(label_test, predictions))
