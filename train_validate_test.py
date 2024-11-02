@@ -47,8 +47,13 @@ print("GuassianNBModel test score : ",GuassianNBModel.score(data_test,label_test
 
 #&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&7
 def calculate_accuracy(predicted_y, y):
-    correct_count = sum(pred == actual for pred, actual in zip(predicted_y, y))
-    accuracy = (correct_count / len(y)) * 100
+    count=0    
+    for i,j in zip(predicted_y, y):
+        if i==j:
+            count+=1
+        else:
+              continue
+    accuracy=(count/len(y))*100
     print(f"accuracy for your model is : { accuracy}")
 
 
