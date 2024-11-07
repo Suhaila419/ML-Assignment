@@ -20,7 +20,6 @@ data_train , data_test, label_train, label_test = train_test_split(data,label,te
 GuassianNBModel = GaussianNB()
 GuassianNBModel.fit(data_train, label_train)
 
-# loss =0.5 * (y-y)^2
 x=data_train.values
 matrix_X_Train=np.array(x)
 matrix_X_Test=np.array(data_test)
@@ -56,6 +55,7 @@ W=inv_Tran.dot(label_encoded_train)
 predict_y=X_Test.dot(W)
 
 def compute_loss(predicted_y, y): 
-    loss=0.5*((np.subtract(y,predicted_y))**2)
-    return sum(loss)
+    loss=0.5*(np.mean((y - predicted_y) ** 2))
+    return loss
 print(compute_loss(predict_y,label_encoded_test))
+
