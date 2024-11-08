@@ -21,16 +21,16 @@ X_Test = np.column_stack((ones_column_Test, matrix_X_Test))
 # X transpose
 X_transpose=X.T
 
-# X_transpose * X  5 row x 105 column * 105 row x 5 column ---> square matrix (5 row x 5 column)
+# X_transpose * X   ---> square matrix
 square_matrix=X_transpose.dot(X)
 
-# inverse (X_transpose * X) 5 row x 5 column
+# inverse (X_transpose * X) 
 inverse_square_matrix=np.linalg.inv(square_matrix)
 
-# (X_transpose * X) ^ inverse * X_transpose ---> 5 row x 5 column * 5 row x 105 column ---> 5 row x 105 column
+# (X_transpose * X) ^ inverse * X_transpose 
 inv_Tran=inverse_square_matrix.dot(X_transpose)
 
-# W=(((X^T)*X)^-1)*(X^T)* Y ----> 5 row x 105 column * 105 row x 1 column --> 5 row x 1 column
+# W=(((X^T)*X)^-1)*(X^T)* Y 
 W=inv_Tran.dot(label_train)
 
 # prediction to compute error
@@ -39,4 +39,4 @@ predict_y=X_Test.dot(W)
 def compute_loss(predicted_y, y): 
     loss=0.5*(np.mean((y - predicted_y) ** 2))
     return loss
-print(compute_loss(predict_y,label_test))
+print("Loss = ",compute_loss(predict_y,label_test))
