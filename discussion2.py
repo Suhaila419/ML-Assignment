@@ -18,11 +18,18 @@ ones_column_Test = np.ones((matrix_X_Test.shape[0], 1))
 
 # Concatenate ones column to the feature matrices
 X = np.column_stack((ones_column_Train, matrix_X_Train))
+X_Test = np.column_stack((ones_column_Test, matrix_X_Test))
+
+# X transpose
+X_transpose = X.T
+
 # Initialize weights randomly
 weights = np.random.rand(X.shape[1])
+
 # Set learning rate and number of iterations
 learning_rate = 0.0001
 iterations = 100
+
 # Loss function based on Equation 1
 def compute_loss(X, y, weights):
     residuals =np.mean( (y - X.dot(weights))**2)
@@ -47,7 +54,6 @@ def gradient_descent(X, y, weights, learning_rate, iterations):
 # Train the model
 final_weights = gradient_descent(X, label_train, weights, learning_rate, iterations)
 predict_y = X_Test.dot(final_weights)
-
 print("Optimal weights after training:", final_weights)
 def MSE(predicted_y, y):
     mse = (1 / len(y)) * np.sum((y - predicted_y) ** 2)
