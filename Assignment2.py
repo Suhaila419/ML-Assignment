@@ -53,6 +53,7 @@ def gradient_descent(X, y, weights, learning_rate, iterations):
     return weights
 # Train the model
 final_weights = gradient_descent(X, label_train, weights, learning_rate, iterations)
+predict_y = X_Test.dot(final_weights)
 print("Optimal weights after training:", final_weights)
 def MSE(predicted_y, y):
     mse = (1 / len(y)) * np.sum((y - predicted_y) ** 2)
