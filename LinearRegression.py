@@ -15,12 +15,14 @@ X = np.column_stack((ones_column_Train, matrix_X_Train))
 X_Test = np.column_stack((ones_column_Test, matrix_X_Test))
 weights = np.random.rand(X.shape[1])# Initialize weights randomly
 # Set learning rate and number of iterations
-learning_rate = 0.01
+learning_rate = 0.0001
 iterations = 100
 # Loss function based on Equation 1
 def compute_loss(X, y, weights):
-    residuals =np.mean( (y - X.dot(weights))**2)
-    loss = 0.5 * residuals  # Equation 1
+    residuals = y - X.dot(weights)
+    residuals_transpose=residuals.T
+    residuals_square=residuals_transpose.dot(residuals)
+    loss = 0.5 *  residuals_square  # Equation 1
     return loss
 
 # Gradient descent function using Equations 2 and 3
