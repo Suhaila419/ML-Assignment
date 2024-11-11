@@ -22,7 +22,7 @@ def compute_loss(X, y, weights):
     residuals = y - X.dot(weights)
     residuals_transpose=residuals.T
     residuals_square=residuals_transpose.dot(residuals)
-    loss = 0.5 *  residuals_square  # Equation 1
+    loss = 0.5 *  np.mean(residuals_square)  # Equation 1
     return loss
 
 # Gradient descent function using Equations 2 and 3
